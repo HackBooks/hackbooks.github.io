@@ -1,0 +1,76 @@
+{
+  "tools": [
+    {
+      "id": 1,
+      "name": "Nmap",
+      "description": "Network exploration and security auditing tool for port scanning and network mapping",
+      "category": "reconnaissance",
+      "install": "apt install nmap",
+      "usage": "nmap -sV -sC target.com",
+      "tags": ["scanner", "network", "reconnaissance"]
+    },
+    {
+      "id": 2,
+      "name": "Burp Suite",
+      "description": "Comprehensive web application security testing platform with proxy, scanner, and intruder tools",
+      "category": "web",
+      "install": "Download from portswigger.net",
+      "usage": "Configure browser proxy to 127.0.0.1:8080",
+      "tags": ["web", "proxy", "scanner"]
+    },
+    {
+      "id": 3,
+      "name": "John the Ripper",
+      "description": "Fast password cracking tool supporting multiple hash and cipher types",
+      "category": "crypto",
+      "install": "apt install john",
+      "usage": "john --wordlist=rockyou.txt hashes.txt",
+      "tags": ["password", "crypto", "cracking"]
+    },
+    {
+      "id": 4,
+      "name": "Metasploit",
+      "description": "Advanced penetration testing framework with extensive exploit database",
+      "category": "exploitation",
+      "install": "apt install metasploit-framework",
+      "usage": "msfconsole",
+      "tags": ["exploitation", "framework", "ruby"]
+    },
+    {
+      "id": 5,
+      "name": "Wireshark",
+      "description": "Network protocol analyzer for packet capture and analysis",
+      "category": "network",
+      "install": "apt install wireshark",
+      "usage": "wireshark",
+      "tags": ["network", "packet", "analysis"]
+    },
+    {
+      "id": 6,
+      "name": "SQLMap",
+      "description": "Automated SQL injection and database takeover tool",
+      "category": "web",
+      "install": "apt install sqlmap",
+      "usage": "sqlmap -u 'http://target.com?id=1' --dbs",
+      "tags": ["web", "sql", "python", "injection"]
+    },
+    {
+      "id": 7,
+      "name": "Ghidra",
+      "description": "NSA's software reverse engineering framework with decompiler",
+      "category": "reverse",
+      "install": "Download from ghidra-sre.org",
+      "usage": "ghidraRun",
+      "tags": ["reverse", "decompiler", "java"]
+    },
+    {
+      "id": 8,
+      "name": "Hashcat",
+      "description": "World's fastest password recovery tool with GPU acceleration",
+      "category": "crypto",
+      "install": "apt install hashcat",
+      "usage": "hashcat -m 0 -a 0 hashes.txt wordlist.txt",
+      "tags": ["password", "crypto", "gpu", "cracking"]
+    }
+  ]
+}
