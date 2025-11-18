@@ -3,7 +3,7 @@
     {
       "id": 1,
       "name": "Nmap",
-      "description": "Network exploration and security auditing tool for port scanning and network mapping",
+      "description": "Network exploration and security auditing tool for port scanning and service enumeration",
       "category": "reconnaissance",
       "install": "apt install nmap",
       "usage": "nmap -sV -sC target.com",
@@ -12,7 +12,7 @@
     {
       "id": 2,
       "name": "Burp Suite",
-      "description": "Comprehensive web application security testing platform with proxy, scanner, and intruder tools",
+      "description": "Web security testing suite with proxy, repeater, intruder, and scanner",
       "category": "web",
       "install": "Download from portswigger.net",
       "usage": "Configure browser proxy to 127.0.0.1:8080",
@@ -21,7 +21,7 @@
     {
       "id": 3,
       "name": "John the Ripper",
-      "description": "Fast password cracking tool supporting multiple hash and cipher types",
+      "description": "Password cracking tool supporting many hash formats",
       "category": "crypto",
       "install": "apt install john",
       "usage": "john --wordlist=rockyou.txt hashes.txt",
@@ -30,7 +30,7 @@
     {
       "id": 4,
       "name": "Metasploit",
-      "description": "Advanced penetration testing framework with extensive exploit database",
+      "description": "Penetration testing framework with exploit, payload, and auxiliary modules",
       "category": "exploitation",
       "install": "apt install metasploit-framework",
       "usage": "msfconsole",
@@ -39,7 +39,7 @@
     {
       "id": 5,
       "name": "Wireshark",
-      "description": "Network protocol analyzer for packet capture and analysis",
+      "description": "Network packet analyzer for capturing and analyzing network traffic",
       "category": "network",
       "install": "apt install wireshark",
       "usage": "wireshark",
@@ -48,7 +48,7 @@
     {
       "id": 6,
       "name": "SQLMap",
-      "description": "Automated SQL injection and database takeover tool",
+      "description": "Automated SQL injection detection and exploitation tool",
       "category": "web",
       "install": "apt install sqlmap",
       "usage": "sqlmap -u 'http://target.com?id=1' --dbs",
@@ -57,7 +57,7 @@
     {
       "id": 7,
       "name": "Ghidra",
-      "description": "NSA's software reverse engineering framework with decompiler",
+      "description": "Reverse engineering framework with disassembler and decompiler",
       "category": "reverse",
       "install": "Download from ghidra-sre.org",
       "usage": "ghidraRun",
@@ -66,7 +66,7 @@
     {
       "id": 8,
       "name": "Hashcat",
-      "description": "World's fastest password recovery tool with GPU acceleration",
+      "description": "High-performance GPU-based password cracking tool",
       "category": "crypto",
       "install": "apt install hashcat",
       "usage": "hashcat -m 0 -a 0 hashes.txt wordlist.txt",
@@ -75,11 +75,110 @@
     {
       "id": 9,
       "name": "Nuclei",
-      "description": "Fast and customizable vulnerability scanner based on simple YAML based DSL.",
-      "category": "crypto",
+      "description": "Fast vulnerability scanner based on rule-based templates",
+      "category": "scanner",
       "install": "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
       "usage": "nuclei -target https://example.com",
       "tags": ["scanner", "fuzzing", "cve-scanner", "vulnerability-detection"]
+    },
+    {
+      "id": 10,
+      "name": "CyberChef",
+      "description": "Web-based tool for encoding, decoding, encryption, and data conversion",
+      "category": "crypto",
+      "install": "Open in browser at gchq.github.io/CyberChef",
+      "usage": "Use operations like base64 decode, XOR, hashing, etc.",
+      "tags": ["crypto", "encode", "decode", "analysis"]
+    },
+    {
+      "id": 11,
+      "name": "ffuf",
+      "description": "Fast web fuzzer for directory and parameter discovery",
+      "category": "web",
+      "install": "apt install ffuf",
+      "usage": "ffuf -u https://site.com/FUZZ -w wordlist.txt",
+      "tags": ["fuzzing", "web", "discovery"]
+    },
+    {
+      "id": 12,
+      "name": "Aircrack-ng",
+      "description": "WiFi auditing suite for cracking WEP/WPA keys",
+      "category": "network",
+      "install": "apt install aircrack-ng",
+      "usage": "aircrack-ng capture.cap",
+      "tags": ["wifi", "network", "cracking"]
+    },
+    {
+      "id": 13,
+      "name": "Radare2",
+      "description": "Open-source reverse engineering framework",
+      "category": "reverse",
+      "install": "apt install radare2",
+      "usage": "r2 binary",
+      "tags": ["reverse", "debug", "disassembler"]
+    },
+    {
+      "id": 14,
+      "name": "Pwntools",
+      "description": "Python library for binary exploitation scripting",
+      "category": "pwn",
+      "install": "pip install pwntools",
+      "usage": "python exploit.py",
+      "tags": ["pwn", "exploit", "python"]
+    },
+    {
+      "id": 15,
+      "name": "ROPgadget",
+      "description": "Find ROP gadgets in binaries for exploitation",
+      "category": "pwn",
+      "install": "pip install ropgadget",
+      "usage": "ROPgadget --binary ./a.out",
+      "tags": ["pwn", "rop", "exploitation"]
+    },
+    {
+      "id": 16,
+      "name": "Volatility",
+      "description": "Memory forensics framework for RAM analysis",
+      "category": "forensics",
+      "install": "pip install volatility3",
+      "usage": "vol -f memory.dump windows.info",
+      "tags": ["forensics", "memory", "analysis"]
+    },
+    {
+      "id": 17,
+      "name": "Steghide",
+      "description": "Steganography tool for hiding and extracting data from images/audio",
+      "category": "forensics",
+      "install": "apt install steghide",
+      "usage": "steghide extract -sf image.jpg",
+      "tags": ["stego", "forensics", "hidden-data"]
+    },
+    {
+      "id": 18,
+      "name": "Sherlock",
+      "description": "OSINT tool to find usernames across social networks",
+      "category": "osint",
+      "install": "git clone https://github.com/sherlock-project/sherlock",
+      "usage": "python3 sherlock username",
+      "tags": ["osint", "username-lookup", "social"]
+    },
+    {
+      "id": 19,
+      "name": "Exiftool",
+      "description": "Metadata extractor for images, videos, and documents",
+      "category": "forensics",
+      "install": "apt install exiftool",
+      "usage": "exiftool file.jpg",
+      "tags": ["metadata", "forensics", "analysis"]
+    },
+    {
+      "id": 20,
+      "name": "Binwalk",
+      "description": "Binary analysis tool for extracting embedded files and firmware",
+      "category": "forensics",
+      "install": "apt install binwalk",
+      "usage": "binwalk -e firmware.bin",
+      "tags": ["forensics", "binary", "extraction"]
     }
   ]
 }
