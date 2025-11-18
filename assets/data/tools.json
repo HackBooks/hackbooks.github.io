@@ -71,6 +71,15 @@
       "install": "apt install hashcat",
       "usage": "hashcat -m 0 -a 0 hashes.txt wordlist.txt",
       "tags": ["password", "crypto", "gpu", "cracking"]
+    },
+    {
+      "id": 9,
+      "name": "Nuclei",
+      "description": "Fast and customizable vulnerability scanner based on simple YAML based DSL.",
+      "category": "crypto",
+      "install": "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
+      "usage": "nuclei -target https://example.com",
+      "tags": ["scanner", "fuzzing", "cve-scanner", "vulnerability-detection"]
     }
   ]
 }
