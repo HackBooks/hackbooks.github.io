@@ -3,182 +3,921 @@
     {
       "id": 1,
       "name": "Nmap",
-      "description": "Network exploration and security auditing tool for port scanning and service enumeration",
+      "description": "Network exploration and security auditing tool for port scanning and network mapping.",
       "category": "reconnaissance",
       "install": "apt install nmap",
       "usage": "nmap -sV -sC target.com",
-      "tags": ["scanner", "network", "reconnaissance"]
+      "tags": ["scanner", "network", "recon"]
     },
     {
       "id": 2,
-      "name": "Burp Suite",
-      "description": "Web security testing suite with proxy, repeater, intruder, and scanner",
-      "category": "web",
-      "install": "Download from portswigger.net",
-      "usage": "Configure browser proxy to 127.0.0.1:8080",
-      "tags": ["web", "proxy", "scanner"]
+      "name": "Masscan",
+      "description": "Internet-scale port scanner, extremely fast.",
+      "category": "reconnaissance",
+      "install": "apt install masscan",
+      "usage": "masscan -p1-65535 10.0.0.1 --rate=10000",
+      "tags": ["scanner", "fast", "network"]
     },
     {
       "id": 3,
-      "name": "John the Ripper",
-      "description": "Password cracking tool supporting many hash formats",
-      "category": "crypto",
-      "install": "apt install john",
-      "usage": "john --wordlist=rockyou.txt hashes.txt",
-      "tags": ["password", "crypto", "cracking"]
+      "name": "Amass",
+      "description": "Subdomain enumeration and attack surface mapping.",
+      "category": "reconnaissance",
+      "install": "snap install amass",
+      "usage": "amass enum -d example.com",
+      "tags": ["recon", "subdomain", "enum"]
     },
     {
       "id": 4,
-      "name": "Metasploit",
-      "description": "Penetration testing framework with exploit, payload, and auxiliary modules",
-      "category": "exploitation",
-      "install": "apt install metasploit-framework",
-      "usage": "msfconsole",
-      "tags": ["exploitation", "framework", "ruby"]
+      "name": "Subfinder",
+      "description": "Passive subdomain enumeration tool.",
+      "category": "reconnaissance",
+      "install": "go install github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest",
+      "usage": "subfinder -d example.com",
+      "tags": ["subdomain", "enum", "recon"]
     },
     {
       "id": 5,
-      "name": "Wireshark",
-      "description": "Network packet analyzer for capturing and analyzing network traffic",
-      "category": "network",
-      "install": "apt install wireshark",
-      "usage": "wireshark",
-      "tags": ["network", "packet", "analysis"]
+      "name": "Assetfinder",
+      "description": "Find related domains and assets.",
+      "category": "reconnaissance",
+      "install": "go install github.com/tomnomnom/assetfinder@latest",
+      "usage": "assetfinder example.com",
+      "tags": ["recon", "subdomain"]
     },
+
     {
       "id": 6,
-      "name": "SQLMap",
-      "description": "Automated SQL injection detection and exploitation tool",
+      "name": "Burp Suite",
+      "description": "Web security testing tool with proxy, repeater, intruder.",
       "category": "web",
-      "install": "apt install sqlmap",
-      "usage": "sqlmap -u 'http://target.com?id=1' --dbs",
-      "tags": ["web", "sql", "python", "injection"]
+      "install": "Download from portswigger.net",
+      "usage": "Set proxy to 127.0.0.1:8080",
+      "tags": ["web", "proxy", "scanner"]
     },
     {
       "id": 7,
-      "name": "Ghidra",
-      "description": "Reverse engineering framework with disassembler and decompiler",
-      "category": "reverse",
-      "install": "Download from ghidra-sre.org",
-      "usage": "ghidraRun",
-      "tags": ["reverse", "decompiler", "java"]
+      "name": "OWASP ZAP",
+      "description": "Open-source web security scanner.",
+      "category": "web",
+      "install": "apt install zaproxy",
+      "usage": "zaproxy -cmd",
+      "tags": ["web", "scanner", "automation"]
     },
     {
       "id": 8,
-      "name": "Hashcat",
-      "description": "High-performance GPU-based password cracking tool",
-      "category": "crypto",
-      "install": "apt install hashcat",
-      "usage": "hashcat -m 0 -a 0 hashes.txt wordlist.txt",
-      "tags": ["password", "crypto", "gpu", "cracking"]
+      "name": "SQLMap",
+      "description": "Automated SQL injection tool.",
+      "category": "web",
+      "install": "apt install sqlmap",
+      "usage": "sqlmap -u 'http://site/?id=1' --dbs",
+      "tags": ["sql", "injection", "web"]
     },
     {
       "id": 9,
       "name": "Nuclei",
-      "description": "Fast vulnerability scanner based on rule-based templates",
-      "category": "scanner",
-      "install": "go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
+      "description": "Fast, template-based vulnerability scanner.",
+      "category": "web",
+      "install": "go install github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest",
       "usage": "nuclei -target https://example.com",
-      "tags": ["scanner", "fuzzing", "cve-scanner", "vulnerability-detection"]
+      "tags": ["scanner", "cve", "web"]
     },
     {
       "id": 10,
-      "name": "CyberChef",
-      "description": "Web-based tool for encoding, decoding, encryption, and data conversion",
-      "category": "crypto",
-      "install": "Open in browser at gchq.github.io/CyberChef",
-      "usage": "Use operations like base64 decode, XOR, hashing, etc.",
-      "tags": ["crypto", "encode", "decode", "analysis"]
+      "name": "Dirsearch",
+      "description": "Web directory brute-forcing tool.",
+      "category": "web",
+      "install": "git clone https://github.com/maurosoria/dirsearch",
+      "usage": "python3 dirsearch.py -u https://site.com -e php,html",
+      "tags": ["web", "enum", "bruteforce"]
     },
+
     {
       "id": 11,
-      "name": "ffuf",
-      "description": "Fast web fuzzer for directory and parameter discovery",
-      "category": "web",
-      "install": "apt install ffuf",
-      "usage": "ffuf -u https://site.com/FUZZ -w wordlist.txt",
-      "tags": ["fuzzing", "web", "discovery"]
+      "name": "Gobuster",
+      "description": "Directory and subdomain brute-forcing tool.",
+      "category": "reconnaissance",
+      "install": "apt install gobuster",
+      "usage": "gobuster dir -u http://site -w wordlist.txt",
+      "tags": ["dirb", "enum", "web"]
     },
     {
       "id": 12,
-      "name": "Aircrack-ng",
-      "description": "WiFi auditing suite for cracking WEP/WPA keys",
-      "category": "network",
-      "install": "apt install aircrack-ng",
-      "usage": "aircrack-ng capture.cap",
-      "tags": ["wifi", "network", "cracking"]
+      "name": "FFUF",
+      "description": "Fast web fuzzer.",
+      "category": "web",
+      "install": "apt install ffuf",
+      "usage": "ffuf -u https://site/FUZZ -w wordlist.txt",
+      "tags": ["fuzz", "dirb", "enum"]
     },
     {
       "id": 13,
-      "name": "Radare2",
-      "description": "Open-source reverse engineering framework",
-      "category": "reverse",
-      "install": "apt install radare2",
-      "usage": "r2 binary",
-      "tags": ["reverse", "debug", "disassembler"]
+      "name": "WhatWeb",
+      "description": "Identify technologies behind a website.",
+      "category": "reconnaissance",
+      "install": "apt install whatweb",
+      "usage": "whatweb site.com",
+      "tags": ["recon", "web"]
     },
     {
       "id": 14,
-      "name": "Pwntools",
-      "description": "Python library for binary exploitation scripting",
-      "category": "pwn",
-      "install": "pip install pwntools",
-      "usage": "python exploit.py",
-      "tags": ["pwn", "exploit", "python"]
+      "name": "Wappalyzer CLI",
+      "description": "Technology fingerprinting tool.",
+      "category": "reconnaissance",
+      "install": "npm install -g wappalyzer",
+      "usage": "wappalyzer https://site",
+      "tags": ["fingerprint", "web"]
     },
     {
       "id": 15,
-      "name": "ROPgadget",
-      "description": "Find ROP gadgets in binaries for exploitation",
-      "category": "pwn",
-      "install": "pip install ropgadget",
-      "usage": "ROPgadget --binary ./a.out",
-      "tags": ["pwn", "rop", "exploitation"]
+      "name": "XSStrike",
+      "description": "Advanced XSS detection suite.",
+      "category": "web",
+      "install": "git clone https://github.com/s0md3v/XSStrike",
+      "usage": "python3 xsstrike.py -u http://site",
+      "tags": ["xss", "web"]
     },
+
     {
       "id": 16,
-      "name": "Volatility",
-      "description": "Memory forensics framework for RAM analysis",
-      "category": "forensics",
-      "install": "pip install volatility3",
-      "usage": "vol -f memory.dump windows.info",
-      "tags": ["forensics", "memory", "analysis"]
+      "name": "Ghidra",
+      "description": "Reverse engineering suite by NSA.",
+      "category": "reverse",
+      "install": "Download from ghidra-sre.org",
+      "usage": "ghidraRun",
+      "tags": ["reverse", "decompiler"]
     },
     {
       "id": 17,
-      "name": "Steghide",
-      "description": "Steganography tool for hiding and extracting data from images/audio",
-      "category": "forensics",
-      "install": "apt install steghide",
-      "usage": "steghide extract -sf image.jpg",
-      "tags": ["stego", "forensics", "hidden-data"]
+      "name": "IDA Free",
+      "description": "Interactive Disassembler.",
+      "category": "reverse",
+      "install": "Download from hex-rays.com",
+      "usage": "ida64",
+      "tags": ["reverse", "decompiler"]
     },
     {
       "id": 18,
-      "name": "Sherlock",
-      "description": "OSINT tool to find usernames across social networks",
-      "category": "osint",
-      "install": "git clone https://github.com/sherlock-project/sherlock",
-      "usage": "python3 sherlock username",
-      "tags": ["osint", "username-lookup", "social"]
+      "name": "Radare2",
+      "description": "Reverse engineering and debugging framework.",
+      "category": "reverse",
+      "install": "apt install radare2",
+      "usage": "r2 binary",
+      "tags": ["debug", "reverse"]
     },
     {
       "id": 19,
-      "name": "Exiftool",
-      "description": "Metadata extractor for images, videos, and documents",
-      "category": "forensics",
-      "install": "apt install exiftool",
-      "usage": "exiftool file.jpg",
-      "tags": ["metadata", "forensics", "analysis"]
+      "name": "Binary Ninja",
+      "description": "Reverse engineering platform with decompiler.",
+      "category": "reverse",
+      "install": "Download from binary.ninja",
+      "usage": "binaryninja",
+      "tags": ["reverse", "binary"]
     },
     {
       "id": 20,
+      "name": "Cutter",
+      "description": "GUI for Radare2.",
+      "category": "reverse",
+      "install": "Download from cutter.re",
+      "usage": "cutter",
+      "tags": ["reverse", "gui"]
+    },
+
+    {
+      "id": 21,
+      "name": "GDB",
+      "description": "GNU Debugger for binary debugging.",
+      "category": "pwn",
+      "install": "apt install gdb",
+      "usage": "gdb ./binary",
+      "tags": ["debugger", "pwn"]
+    },
+    {
+      "id": 22,
+      "name": "Pwndbg",
+      "description": "GDB enhancement for exploit development.",
+      "category": "pwn",
+      "install": "git clone https://github.com/pwndbg/pwndbg",
+      "usage": "gdb -q binary",
+      "tags": ["pwn", "debug"]
+    },
+    {
+      "id": 23,
+      "name": "Pwntools",
+      "description": "CTF exploit development library for Python.",
+      "category": "pwn",
+      "install": "pip install pwntools",
+      "usage": "from pwn import *",
+      "tags": ["exploit", "pwn", "python"]
+    },
+    {
+      "id": 24,
+      "name": "ROPgadget",
+      "description": "Find ROP gadgets in binaries.",
+      "category": "pwn",
+      "install": "pip install ropgadget",
+      "usage": "ROPgadget --binary binary",
+      "tags": ["rop", "exploit"]
+    },
+    {
+      "id": 25,
+      "name": "one_gadget",
+      "description": "Find one-gadget RCE for glibc.",
+      "category": "pwn",
+      "install": "gem install one_gadget",
+      "usage": "one_gadget libc.so",
+      "tags": ["libc", "exploit"]
+    },
+
+    {
+      "id": 26,
+      "name": "John the Ripper",
+      "description": "Password cracker supporting many hash types.",
+      "category": "crypto",
+      "install": "apt install john",
+      "usage": "john hashes.txt",
+      "tags": ["password", "cracking"]
+    },
+    {
+      "id": 27,
+      "name": "Hashcat",
+      "description": "GPU-based password recovery tool.",
+      "category": "crypto",
+      "install": "apt install hashcat",
+      "usage": "hashcat -m 0 hashes.txt wordlist.txt",
+      "tags": ["gpu", "cracking"]
+    },
+    {
+      "id": 28,
+      "name": "CyberChef",
+      "description": "Swiss army knife for encoding/decoding.",
+      "category": "crypto",
+      "install": "Browser",
+      "usage": "Open cyberchef",
+      "tags": ["encode", "decode", "crypto"]
+    },
+    {
+      "id": 29,
+      "name": "Hash-Identifier",
+      "description": "Identify hash types.",
+      "category": "crypto",
+      "install": "apt install hash-identifier",
+      "usage": "hash-identifier",
+      "tags": ["hash", "identify"]
+    },
+    {
+      "id": 30,
+      "name": "Openssl",
+      "description": "Cryptographic utility for operations and testing.",
+      "category": "crypto",
+      "install": "apt install openssl",
+      "usage": "openssl enc -base64",
+      "tags": ["ssl", "crypto"]
+    },
+
+    {
+      "id": 31,
+      "name": "Steghide",
+      "description": "Hide data inside images and audio.",
+      "category": "stego",
+      "install": "apt install steghide",
+      "usage": "steghide extract -sf file.jpg",
+      "tags": ["stego", "extract"]
+    },
+    {
+      "id": 32,
       "name": "Binwalk",
-      "description": "Binary analysis tool for extracting embedded files and firmware",
-      "category": "forensics",
+      "description": "Firmware and image extraction tool.",
+      "category": "stego",
       "install": "apt install binwalk",
-      "usage": "binwalk -e firmware.bin",
-      "tags": ["forensics", "binary", "extraction"]
+      "usage": "binwalk -e file.png",
+      "tags": ["extract", "stego"]
+    },
+    {
+      "id": 33,
+      "name": "zsteg",
+      "description": "PNG/BMP stego analyzer.",
+      "category": "stego",
+      "install": "gem install zsteg",
+      "usage": "zsteg file.png",
+      "tags": ["lsb", "stego"]
+    },
+    {
+      "id": 34,
+      "name": "Stegsolve",
+      "description": "Image layer analysis tool.",
+      "category": "stego",
+      "install": "jar file",
+      "usage": "java -jar stegsolve.jar",
+      "tags": ["stego", "image"]
+    },
+    {
+      "id": 35,
+      "name": "Outguess",
+      "description": "Steganography tool for JPEG images.",
+      "category": "stego",
+      "install": "apt install outguess",
+      "usage": "outguess -k key -d data.jpg",
+      "tags": ["stego", "jpeg"]
+    },
+
+    {
+      "id": 36,
+      "name": "Aircrack-ng",
+      "description": "Wireless network cracking suite.",
+      "category": "network",
+      "install": "apt install aircrack-ng",
+      "usage": "aircrack-ng capture.cap",
+      "tags": ["wifi", "cracking"]
+    },
+    {
+      "id": 37,
+      "name": "Wireshark",
+      "description": "Packet analyzer tool.",
+      "category": "network",
+      "install": "apt install wireshark",
+      "usage": "wireshark",
+      "tags": ["pcap", "network"]
+    },
+    {
+      "id": 38,
+      "name": "tcpdump",
+      "description": "CLI packet capture tool.",
+      "category": "network",
+      "install": "apt install tcpdump",
+      "usage": "tcpdump -i wlan0",
+      "tags": ["pcap", "network"]
+    },
+    {
+      "id": 39,
+      "name": "Ettercap",
+      "description": "Man-in-the-middle attack suite.",
+      "category": "network",
+      "install": "apt install ettercap-graphical",
+      "usage": "ettercap -G",
+      "tags": ["mitm", "network"]
+    },
+    {
+      "id": 40,
+      "name": "Bettercap",
+      "description": "Powerful network attack & monitoring framework.",
+      "category": "network",
+      "install": "apt install bettercap",
+      "usage": "bettercap -iface wlan0",
+      "tags": ["mitm", "wifi"]
+    },
+
+    {
+      "id": 41,
+      "name": "Metasploit Framework",
+      "description": "Exploit development and execution framework.",
+      "category": "exploitation",
+      "install": "apt install metasploit-framework",
+      "usage": "msfconsole",
+      "tags": ["exploit", "framework"]
+    },
+    {
+      "id": 42,
+      "name": "SearchSploit",
+      "description": "Local exploit search tool.",
+      "category": "exploitation",
+      "install": "apt install exploitdb",
+      "usage": "searchsploit wordpress",
+      "tags": ["exploit", "cve"]
+    },
+    {
+      "id": 43,
+      "name": "CVE-bin-tool",
+      "description": "Check binaries for known CVEs.",
+      "category": "exploitation",
+      "install": "pip install cve-bin-tool",
+      "usage": "cve-bin-tool binary",
+      "tags": ["cve", "scanner"]
+    },
+    {
+      "id": 44,
+      "name": "Joomscan",
+      "description": "Joomla CMS vulnerability scanner.",
+      "category": "web",
+      "install": "apt install joomscan",
+      "usage": "joomscan -u site",
+      "tags": ["cms", "web"]
+    },
+    {
+      "id": 45,
+      "name": "WPScan",
+      "description": "WordPress vulnerability scanner.",
+      "category": "web",
+      "install": "apt install wpscan",
+      "usage": "wpscan --url site.com",
+      "tags": ["wordpress", "cms"]
+    },
+
+    {
+      "id": 46,
+      "name": "Hydra",
+      "description": "Fast network logon cracker.",
+      "category": "password",
+      "install": "apt install hydra",
+      "usage": "hydra -l admin -P wordlist.txt ssh://target",
+      "tags": ["bruteforce", "ssh"]
+    },
+    {
+      "id": 47,
+      "name": "Medusa",
+      "description": "Massively parallel login brute-force tool.",
+      "category": "password",
+      "install": "apt install medusa",
+      "usage": "medusa -h target -u admin -P wordlist.txt -M ssh",
+      "tags": ["bruteforce", "password"]
+    },
+    {
+      "id": 48,
+      "name": "Crunch",
+      "description": "Wordlist generator with patterns.",
+      "category": "password",
+      "install": "apt install crunch",
+      "usage": "crunch 4 6 abc123 > list.txt",
+      "tags": ["wordlist", "brute"]
+    },
+    {
+      "id": 49,
+      "name": "CeWL",
+      "description": "Website spider to generate wordlists.",
+      "category": "password",
+      "install": "apt install cewl",
+      "usage": "cewl site.com -w words.txt",
+      "tags": ["wordlist", "web"]
+    },
+    {
+      "id": 50,
+      "name": "RockYou",
+      "description": "Famous password wordlist.",
+      "category": "password",
+      "install": "Included in Kali",
+      "usage": "Use with hashcat or john",
+      "tags": ["wordlist", "passwords"]
+    },
+
+    {
+      "id": 51,
+      "name": "ExifTool",
+      "description": "Read image metadata.",
+      "category": "stego",
+      "install": "apt install exiftool",
+      "usage": "exiftool image.jpg",
+      "tags": ["metadata", "image"]
+    },
+    {
+      "id": 52,
+      "name": "ExifProbe",
+      "description": "Parse image metadata deeper.",
+      "category": "stego",
+      "install": "apt install exifprobe",
+      "usage": "exifprobe img.jpg",
+      "tags": ["metadata", "forensics"]
+    },
+    {
+      "id": 53,
+      "name": "Strings",
+      "description": "Find ASCII strings in binary.",
+      "category": "forensics",
+      "install": "built-in",
+      "usage": "strings binary",
+      "tags": ["binary", "forensics"]
+    },
+    {
+      "id": 54,
+      "name": "Foremost",
+      "description": "File recovery tool based on headers and footers.",
+      "category": "forensics",
+      "install": "apt install foremost",
+      "usage": "foremost -i image.dd",
+      "tags": ["recovery", "forensics"]
+    },
+    {
+      "id": 55,
+      "name": "Autopsy",
+      "description": "Digital forensics GUI suite.",
+      "category": "forensics",
+      "install": "apt install autopsy",
+      "usage": "autopsy",
+      "tags": ["forensics", "gui"]
+    },
+
+    {
+      "id": 56,
+      "name": "Volatility",
+      "description": "Memory forensics framework.",
+      "category": "forensics",
+      "install": "pip install volatility",
+      "usage": "vol.py -f mem.raw",
+      "tags": ["memory", "forensics"]
+    },
+    {
+      "id": 57,
+      "name": "Volatility 3",
+      "description": "Modern version of Volatility.",
+      "category": "forensics",
+      "install": "pip install volatility3",
+      "usage": "vol3 -f mem.raw",
+      "tags": ["forensics", "memory"]
+    },
+    {
+      "id": 58,
+      "name": "Sleuth Kit",
+      "description": "File system forensics toolkit.",
+      "category": "forensics",
+      "install": "apt install sleuthkit",
+      "usage": "fls image.dd",
+      "tags": ["filesystem", "forensics"]
+    },
+    {
+      "id": 59,
+      "name": "HXD",
+      "description": "Hex editor for Windows.",
+      "category": "forensics",
+      "install": "Download from mh-nexus.de",
+      "usage": "Open file in HxD",
+      "tags": ["hex", "editor"]
+    },
+    {
+      "id": 60,
+      "name": "Bless",
+      "description": "Hex editor for Linux.",
+      "category": "forensics",
+      "install": "apt install bless",
+      "usage": "bless file",
+      "tags": ["hex", "editor"]
+    },
+
+    {
+      "id": 61,
+      "name": "Gitleaks",
+      "description": "Secret scanning in Git repositories.",
+      "category": "reconnaissance",
+      "install": "apt install gitleaks",
+      "usage": "gitleaks detect",
+      "tags": ["git", "recon"]
+    },
+    {
+      "id": 62,
+      "name": "GitTools",
+      "description": "Dump .git folder from websites.",
+      "category": "web",
+      "install": "git clone https://github.com/internetwache/GitTools",
+      "usage": "bash extractor.sh",
+      "tags": ["git", "web"]
+    },
+    {
+      "id": 63,
+      "name": "JS Beautify",
+      "description": "Deobfuscate JavaScript.",
+      "category": "web",
+      "install": "npm install -g js-beautify",
+      "usage": "js-beautify file.js",
+      "tags": ["javascript", "deobf"]
+    },
+    {
+      "id": 64,
+      "name": "Jstillery",
+      "description": "Static JavaScript analysis tool.",
+      "category": "web",
+      "install": "pip install jstillery",
+      "usage": "jstillery analyze file.js",
+      "tags": ["javascript", "analysis"]
+    },
+    {
+      "id": 65,
+      "name": "Tok",
+      "description": "JWT exploitation and analysis tool.",
+      "category": "web",
+      "install": "pip install tok",
+      "usage": "tok decode token.jwt",
+      "tags": ["jwt", "web"]
+    },
+
+    {
+      "id": 66,
+      "name": "dnscan",
+      "description": "DNS subdomain brute-forcer.",
+      "category": "reconnaissance",
+      "install": "git clone https://github.com/rbsec/dnscan",
+      "usage": "python3 dnscan.py",
+      "tags": ["dns", "recon"]
+    },
+    {
+      "id": 67,
+      "name": "DNSRecon",
+      "description": "DNS enumeration tool.",
+      "category": "reconnaissance",
+      "install": "apt install dnsrecon",
+      "usage": "dnsrecon -d domain.com",
+      "tags": ["dns", "enum"]
+    },
+    {
+      "id": 68,
+      "name": "DNSDumpster",
+      "description": "Online DNS reconnaissance tool.",
+      "category": "reconnaissance",
+      "install": "Browser",
+      "usage": "dnsdumpster.com",
+      "tags": ["dns", "subdomain"]
+    },
+    {
+      "id": 69,
+      "name": "Subjack",
+      "description": "Subdomain takeover tool.",
+      "category": "web",
+      "install": "go install github.com/haccer/subjack@latest",
+      "usage": "subjack -w list.txt -t 100",
+      "tags": ["subdomain", "takeover"]
+    },
+    {
+      "id": 70,
+      "name": "HTTProbe",
+      "description": "Check which hosts are alive.",
+      "category": "reconnaissance",
+      "install": "go install github.com/tomnomnom/httprobe@latest",
+      "usage": "cat hosts.txt | httprobe",
+      "tags": ["http", "alive"]
+    },
+
+    {
+      "id": 71,
+      "name": "Burp Intruder",
+      "description": "Brute-force and payload injection module in Burp.",
+      "category": "web",
+      "install": "Built into Burp",
+      "usage": "Use intruder tab",
+      "tags": ["web", "brute"]
+    },
+    {
+      "id": 72,
+      "name": "Burp Decoder",
+      "description": "Encoding/decoding utility.",
+      "category": "web",
+      "install": "Included in Burp",
+      "usage": "Decoder tab",
+      "tags": ["decode", "encode"]
+    },
+    {
+      "id": 73,
+      "name": "XSSHunter",
+      "description": "Blind XSS exploitation tool.",
+      "category": "web",
+      "install": "Web-based",
+      "usage": "Inject payload",
+      "tags": ["xss", "web"]
+    },
+    {
+      "id": 74,
+      "name": "Dalfox",
+      "description": "XSS scanning tool.",
+      "category": "web",
+      "install": "go install github.com/hahwul/dalfox@latest",
+      "usage": "dalfox url https://site",
+      "tags": ["xss", "scanner"]
+    },
+    {
+      "id": 75,
+      "name": "Arjun",
+      "description": "Parameter discovery tool.",
+      "category": "web",
+      "install": "pip install arjun",
+      "usage": "arjun -u site.com",
+      "tags": ["param", "enum"]
+    },
+
+    {
+      "id": 76,
+      "name": "JQ",
+      "description": "JSON parser for CLI.",
+      "category": "forensics",
+      "install": "apt install jq",
+      "usage": "cat data.json | jq '.'",
+      "tags": ["json", "cli"]
+    },
+    {
+      "id": 77,
+      "name": "xxd",
+      "description": "Hex dump tool.",
+      "category": "forensics",
+      "install": "built-in",
+      "usage": "xxd file",
+      "tags": ["hex"]
+    },
+    {
+      "id": 78,
+      "name": "Basecrack",
+      "description": "Base64/base32/base85 cracking tool.",
+      "category": "crypto",
+      "install": "pip install basecrack",
+      "usage": "basecrack enc.txt",
+      "tags": ["encode", "crypto"]
+    },
+    {
+      "id": 79,
+      "name": "RSACTFTool",
+      "description": "Attack weak RSA keys.",
+      "category": "crypto",
+      "install": "pip install rsactftool",
+      "usage": "python3 rsactftool.py -n N -e E --uncipher C",
+      "tags": ["rsa", "crypto"]
+    },
+    {
+      "id": 80,
+      "name": "Factordb",
+      "description": "Online RSA modulus factor database.",
+      "category": "crypto",
+      "install": "Browser",
+      "usage": "factordb.com",
+      "tags": ["rsa", "factor"]
+    },
+
+    {
+      "id": 81,
+      "name": "ZAP Ajax Spider",
+      "description": "Dynamic crawling of JS-heavy sites.",
+      "category": "web",
+      "install": "Built into ZAP",
+      "usage": "Use Spider tab",
+      "tags": ["crawl", "web"]
+    },
+    {
+      "id": 82,
+      "name": "Nikto",
+      "description": "Web server scanner.",
+      "category": "web",
+      "install": "apt install nikto",
+      "usage": "nikto -h site.com",
+      "tags": ["scanner", "web"]
+    },
+    {
+      "id": 83,
+      "name": "SSLScan",
+      "description": "Scan SSL/TLS ciphers.",
+      "category": "network",
+      "install": "apt install sslscan",
+      "usage": "sslscan site.com",
+      "tags": ["ssl", "tls"]
+    },
+    {
+      "id": 84,
+      "name": "Sslstrip",
+      "description": "MITM SSL downgrade tool.",
+      "category": "network",
+      "install": "apt install sslstrip",
+      "usage": "sslstrip -l 8080",
+      "tags": ["mitm", "ssl"]
+    },
+    {
+      "id": 85,
+      "name": "Responder",
+      "description": "LLMNR/NBT-NS poisoning tool.",
+      "category": "network",
+      "install": "apt install responder",
+      "usage": "responder -I eth0",
+      "tags": ["network", "poison"]
+    },
+
+    {
+      "id": 86,
+      "name": "Tcpflow",
+      "description": "Record TCP flows.",
+      "category": "forensics",
+      "install": "apt install tcpflow",
+      "usage": "tcpflow -i eth0",
+      "tags": ["pcap", "flow"]
+    },
+    {
+      "id": 87,
+      "name": "Uncompyle6",
+      "description": "Decompile Python bytecode.",
+      "category": "reverse",
+      "install": "pip install uncompyle6",
+      "usage": "uncompyle6 file.pyc",
+      "tags": ["python", "reverse"]
+    },
+    {
+      "id": 88,
+      "name": "Jadx",
+      "description": "Decompile Android APKs.",
+      "category": "reverse",
+      "install": "apt install jadx",
+      "usage": "jadx-gui app.apk",
+      "tags": ["android", "apk"]
+    },
+    {
+      "id": 89,
+      "name": "APKTool",
+      "description": "Decompile and rebuild APKs.",
+      "category": "reverse",
+      "install": "apt install apktool",
+      "usage": "apktool d app.apk",
+      "tags": ["android", "reverse"]
+    },
+    {
+      "id": 90,
+      "name": "Frida",
+      "description": "Dynamic instrumentation toolkit.",
+      "category": "reverse",
+      "install": "pip install frida-tools",
+      "usage": "frida -U -f app",
+      "tags": ["instrument", "reverse"]
+    },
+
+    {
+      "id": 91,
+      "name": "mitmproxy",
+      "description": "Interactive HTTPS proxy.",
+      "category": "network",
+      "install": "pip install mitmproxy",
+      "usage": "mitmproxy",
+      "tags": ["mitm", "proxy"]
+    },
+    {
+      "id": 92,
+      "name": "Rustscan",
+      "description": "Fast port scanner based on Rust.",
+      "category": "reconnaissance",
+      "install": "cargo install rustscan",
+      "usage": "rustscan -a 10.10.10.10",
+      "tags": ["scanner", "fast"]
+    },
+    {
+      "id": 93,
+      "name": "EmailHarvester",
+      "description": "Email enumeration tool.",
+      "category": "reconnaissance",
+      "install": "pip install emailharvester",
+      "usage": "emailharvester -d site.com",
+      "tags": ["recon", "email"]
+    },
+    {
+      "id": 94,
+      "name": "PhoneInfoga",
+      "description": "Phone number OSINT tool.",
+      "category": "osint",
+      "install": "docker pull sundowndev/phoneinfoga",
+      "usage": "phoneinfoga serve",
+      "tags": ["osint", "phone"]
+    },
+    {
+      "id": 95,
+      "name": "Sherlock",
+      "description": "Find usernames across social networks.",
+      "category": "osint",
+      "install": "pip install sherlock",
+      "usage": "sherlock username",
+      "tags": ["osint", "social"]
+    },
+
+    {
+      "id": 96,
+      "name": "OsintFramework",
+      "description": "Online OSINT directory.",
+      "category": "osint",
+      "install": "Browser",
+      "usage": "osintframework.com",
+      "tags": ["osint", "directory"]
+    },
+    {
+      "id": 97,
+      "name": "ExifScan",
+      "description": "Scan directories for EXIF metadata.",
+      "category": "forensics",
+      "install": "pip install exifscan",
+      "usage": "exifscan folder",
+      "tags": ["metadata", "image"]
+    },
+    {
+      "id": 98,
+      "name": "PcapXray",
+      "description": "Visualize PCAP traffic.",
+      "category": "network",
+      "install": "pip install pcapxray",
+      "usage": "pcapxray file.pcap",
+      "tags": ["pcap", "visual"]
+    },
+    {
+      "id": 99,
+      "name": "CrackMapExec",
+      "description": "Pentesting tool for Active Directory.",
+      "category": "network",
+      "install": "pip install crackmapexec",
+      "usage": "cme smb 192.168.1.0/24",
+      "tags": ["smb", "ad"]
+    },
+    {
+      "id": 100,
+      "name": "ImHex",
+      "description": "Advanced hex editor.",
+      "category": "forensics",
+      "install": "Download from imhex.werwolv.net",
+      "usage": "imhex file",
+      "tags": ["hex", "reverse"]
     }
   ]
 }
